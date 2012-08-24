@@ -3,7 +3,7 @@
 //  SOS Contact
 //
 //  Created by Paul Keller on 24/08/2012.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 Planet K Games. All rights reserved.
 //
 
 #import "MasterViewController.h"
@@ -28,6 +28,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    sharedDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 }
 
 - (void)viewDidUnload
@@ -35,6 +37,7 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -100,5 +103,40 @@
     return YES;
 }
 */
+
+#pragma TableView Methods
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [sharedDelegate.countriesArray count];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return @"Country";
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"countryCell"];
+    
+    CountryOM * country = [sharedDelegate.countriesArray objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = country.country;
+//    cell.imageView.image = country.flag;
+    
+    UIImage * flag;
+    flag = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", cell.textLabel.text, @".png"]];
+    cell.imageView.image = flag;
+    
+    return cell;
+}
+
+
+
 
 @end

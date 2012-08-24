@@ -3,7 +3,7 @@
 //  SOS Contact
 //
 //  Created by Paul Keller on 24/08/2012.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 Planet K Games. All rights reserved.
 //
 
 #import "AppDelegate.h"
@@ -11,10 +11,18 @@
 @implementation AppDelegate
 
 @synthesize window = _window;
+@synthesize countriesArray;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    countriesArray = [[NSMutableArray alloc] init];
+    
+    NSString * filePath = [self copyDatabaseToDocuments];
+    
+    [self readCountryDetailsFromDatabaseWithPath:filePath];
+    
+    
     return YES;
 }
 							
@@ -56,5 +64,63 @@
      See also applicationDidEnterBackground:.
      */
 }
+
+#pragma DataBase Methods
+- (NSString *)copyDatabaseToDocuments {
+    NSFileManager * fileManager = [NSFileManager defaultManager];
+    NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString * documentsPath = [paths objectAtIndex:0];
+    NSString * filePath = [documentsPath stringByAppendingPathComponent:@"EmergencyContact.sqlite"]; //HAS TO BE THE FULL NAME OF THE FILE. EmergencyContact on it's own won't do.
+    
+    if (![fileManager fileExistsAtPath:filePath]) {
+        NSString * bundlePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"EmergencyContact.sqlite"];
+        [fileManager copyItemAtPath:bundlePath toPath:filePath error:nil];
+    }
+    
+    return filePath;
+}
+
+- (void) readCountryDetailsFromDatabaseWithPath:(NSString *)filePath
+{
+    sqlite3 * database;
+    if (sqlite3_open([filePath UTF8String], &database) == SQLITE_OK) {
+        const char * sqlStatement = "select * from contact order by country";
+        sqlite3_stmt * compiledStatement;
+        if (sqlite3_prepare_v2(database, sqlStatement, -1, &compiledStatement, NULL) == SQLITE_OK) {
+            while (sqlite3_step(compiledStatement) == SQLITE_ROW) {
+                NSNumber * dbID = [NSNumber numberWithInt:(int)sqlite3_column_int(compiledStatement, 0)];
+                NSString * dbCountry =  [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 1)];
+                NSString * dbRegion =  [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 2)];
+                NSNumber * dbPolice = [NSNumber numberWithInt:(int)sqlite3_column_int(compiledStatement, 3)];
+                NSNumber * dbMedical = [NSNumber numberWithInt:(int)sqlite3_column_int(compiledStatement, 4)];
+                NSNumber * dbFire =  [NSNumber numberWithInt:(int)sqlite3_column_int(compiledStatement, 5)];
+                NSString * dbNotes =  [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 6)];
+                
+                CountryOM * currCountry = [[CountryOM alloc] init];
+                
+                currCountry.EmergencyContactID = dbID;
+                currCountry.Country = dbCountry;
+                currCountry.Region = dbRegion;
+                currCountry.Police = dbPolice;
+                currCountry.Medical = dbMedical;
+                currCountry.Fire = dbFire;
+                currCountry.Notes = dbNotes;
+                
+                currCountry.flag = [UIImage imageNamed:[NSString stringWithFormat:@"@%.png", dbCountry]];
+                
+                NSLog(@"Country:%@, any spaces" , dbCountry);
+                
+                [self.countriesArray addObject:currCountry];
+            }
+        } else
+        {
+            printf( "could not prepare statement: %s\n", sqlite3_errmsg(database) );
+        }
+        sqlite3_finalize(compiledStatement);
+    }
+    sqlite3_close(database);
+    
+}
+
 
 @end
