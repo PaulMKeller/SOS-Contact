@@ -10,9 +10,13 @@
 #import "CountryOM.h"
 #import "AppDelegate.h"
 
+@class DetailViewController;
+
 @interface MasterViewController : UITableViewController <UITableViewDataSource>
 {
     AppDelegate *sharedDelegate;
 }
+
+@property (strong, nonatomic) DetailViewController *detailViewController;
 
 @end

@@ -11,7 +11,13 @@
 @interface DetailViewController : UIViewController
 
 @property (strong, nonatomic) id detailItem;
+@property (strong, nonatomic) IBOutlet UIImageView *imageFlag;
+@property (strong, nonatomic) IBOutlet UILabel *countryTitle;
+@property (strong, nonatomic) IBOutlet UILabel *policeNumber;
+@property (strong, nonatomic) IBOutlet UILabel *medicalNumber;
+@property (strong, nonatomic) IBOutlet UILabel *fireNumber;
+@property (strong, nonatomic) IBOutlet UILabel *notesText;
 
-@property (strong, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+
 
 @end

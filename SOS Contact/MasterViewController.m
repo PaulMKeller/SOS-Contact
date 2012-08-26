@@ -7,9 +7,10 @@
 //
 
 #import "MasterViewController.h"
+#import "DetailViewController.h"
 
 @implementation MasterViewController
-
+@synthesize detailViewController = _detailViewController;
 
 - (void)awakeFromNib
 {
@@ -26,10 +27,13 @@
 
 - (void)viewDidLoad
 {
+    sharedDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    //    self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    sharedDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
 }
 
 - (void)viewDidUnload
@@ -104,6 +108,10 @@
 }
 */
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    self.detailViewController=segue.destinationViewController;
+}
+
 #pragma TableView Methods
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -127,13 +135,22 @@
     CountryOM * country = [sharedDelegate.countriesArray objectAtIndex:indexPath.row];
     
     cell.textLabel.text = country.country;
-//    cell.imageView.image = country.flag;
     
     UIImage * flag;
     flag = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", cell.textLabel.text, @".png"]];
     cell.imageView.image = flag;
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    CountryOM * selectedCountry = [sharedDelegate.countriesArray objectAtIndex: indexPath.row];
+    DetailViewController * sharedController = self.detailViewController;
+    
+    [sharedController setDetailItem:selectedCountry];
+    
 }
 
 

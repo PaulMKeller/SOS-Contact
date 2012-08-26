@@ -84,17 +84,26 @@
 {
     sqlite3 * database;
     if (sqlite3_open([filePath UTF8String], &database) == SQLITE_OK) {
-        const char * sqlStatement = "select * from contact order by country";
+        const char * sqlStatement = "SELECT ID, Country, Police, Medical, Fire, Notes, Region FROM Contact order by country";
         sqlite3_stmt * compiledStatement;
         if (sqlite3_prepare_v2(database, sqlStatement, -1, &compiledStatement, NULL) == SQLITE_OK) {
             while (sqlite3_step(compiledStatement) == SQLITE_ROW) {
                 NSNumber * dbID = [NSNumber numberWithInt:(int)sqlite3_column_int(compiledStatement, 0)];
                 NSString * dbCountry =  [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 1)];
-                NSString * dbRegion =  [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 2)];
-                NSNumber * dbPolice = [NSNumber numberWithInt:(int)sqlite3_column_int(compiledStatement, 3)];
-                NSNumber * dbMedical = [NSNumber numberWithInt:(int)sqlite3_column_int(compiledStatement, 4)];
-                NSNumber * dbFire =  [NSNumber numberWithInt:(int)sqlite3_column_int(compiledStatement, 5)];
-                NSString * dbNotes =  [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 6)];
+                NSNumber * dbPolice = [NSNumber numberWithInt:(int)sqlite3_column_int(compiledStatement, 2)];
+                NSNumber * dbMedical = [NSNumber numberWithInt:(int)sqlite3_column_int(compiledStatement, 3)];
+                NSNumber * dbFire =  [NSNumber numberWithInt:(int)sqlite3_column_int(compiledStatement, 4)];
+
+                NSString * dbNotes;
+                if (sqlite3_column_text(compiledStatement, 5) != nil) {
+                    dbNotes = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 5)];
+                } 
+                else
+                {
+                    dbNotes = @"";
+                }
+                
+                NSString * dbRegion =  [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 6)];
                 
                 CountryOM * currCountry = [[CountryOM alloc] init];
                 
@@ -108,7 +117,8 @@
                 
                 currCountry.flag = [UIImage imageNamed:[NSString stringWithFormat:@"@%.png", dbCountry]];
                 
-                NSLog(@"Country:%@, any spaces" , dbCountry);
+//                NSLog(@"Country:%@, any spaces" , dbCountry);
+//                NSLog(@"Police:%e" , dbPolice);
                 
                 [self.countriesArray addObject:currCountry];
             }
