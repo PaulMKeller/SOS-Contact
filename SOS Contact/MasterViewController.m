@@ -11,6 +11,7 @@
 
 @implementation MasterViewController
 @synthesize locationManager;
+@synthesize countriesTableView;
 @synthesize detailViewController = _detailViewController;
 //@synthesize locationManager;
 
@@ -37,11 +38,14 @@
     
     locationManager.delegate = self;
     [locationManager startUpdatingLocation];
+    
+    [self setUpTableView];
 }
 
 - (void)viewDidUnload
 {
     [self setLocationManager:nil];
+    [self setCountriesTableView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -129,7 +133,8 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return @"Country";
+    //return @"Country";
+    return nil;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -155,6 +160,35 @@
     
     [sharedController setDetailItem:selectedCountry];
     
+}
+
+- (void)setUpTableView
+{
+    //
+    // Change the properties of the imageView and tableView (these could be set
+    // in interface builder instead).
+    //
+//    countriesTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+//    countriesTableView.rowHeight = 50;
+//    countriesTableView.backgroundColor = [UIColor clearColor];
+//    backgroundImageView.image = [UIImage imageNamed:@"BackgroundV2.png"];
+    
+//    //
+//    // Create a header view. Wrap it in a container to allow us to position
+//    // it better.
+//    //
+//    UIView *containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 60)];
+//    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 20, 300, 40)];
+//    headerLabel.text = NSLocalizedString(@"Header for the table", @"");
+//    headerLabel.textColor = [UIColor whiteColor];
+//    headerLabel.shadowColor = [UIColor blackColor];
+//    headerLabel.shadowOffset = CGSizeMake(0, 1);
+//    headerLabel.font = [UIFont boldSystemFontOfSize:22];
+//    headerLabel.backgroundColor = [UIColor clearColor];
+//    [containerView addSubview:headerLabel];
+//    self.countriesTableView.tableHeaderView = containerView;
+    
+    self.countriesTableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"BackgroundV2.png"]];
 }
 
 #pragma Geolocation Methods

@@ -21,7 +21,9 @@
 }
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
-//@property (nonatomic, retain) CLLocationManager * locationManager;
 @property (strong, nonatomic) IBOutlet CLLocationManager *locationManager;
+@property (strong, nonatomic) IBOutlet UITableView *countriesTableView;
+
+- (void)setUpTableView;
 
 @end
