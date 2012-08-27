@@ -325,6 +325,17 @@
 		DA83BAA115E7D76900A34EDE /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DA83BAA015E7D76900A34EDE /* libsqlite3.0.dylib */; };
 		DA83BAB115E7E7DD00A34EDE /* Guyana.png in Resources */ = {isa = PBXBuildFile; fileRef = DA83BAB015E7E7DD00A34EDE /* Guyana.png */; };
 		DA83BAB315E7EA2500A34EDE /* EmergencyContact.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = DA83BAB215E7EA2500A34EDE /* EmergencyContact.sqlite */; };
+		DAC6543C15EB5881000FC405 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC6543B15EB5881000FC405 /* CoreLocation.framework */; };
+		DAC6544715EB87BA000FC405 /* SOSIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = DAC6544515EB87BA000FC405 /* SOSIcon.png */; };
+		DAC6544815EB87BA000FC405 /* SOSIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAC6544615EB87BA000FC405 /* SOSIcon@2x.png */; };
+		DAC6544A15EB87D0000FC405 /* SOSIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = DAC6544915EB87D0000FC405 /* SOSIcon.png */; };
+		DAC6544C15EB87DB000FC405 /* SOSIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAC6544B15EB87DB000FC405 /* SOSIcon@2x.png */; };
+		DAC6544F15EB8FD6000FC405 /* LaunchImage320x480.png in Resources */ = {isa = PBXBuildFile; fileRef = DAC6544D15EB8FD6000FC405 /* LaunchImage320x480.png */; };
+		DAC6545015EB8FD6000FC405 /* LaunchImage640x960.png in Resources */ = {isa = PBXBuildFile; fileRef = DAC6544E15EB8FD6000FC405 /* LaunchImage640x960.png */; };
+		DAC6545215EB8FE1000FC405 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = DAC6545115EB8FE1000FC405 /* Default.png */; };
+		DAC6545415EB8FEA000FC405 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAC6545315EB8FEA000FC405 /* Default@2x.png */; };
+		DAC6545615EB90FE000FC405 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = DAC6545515EB90FE000FC405 /* Background.png */; };
+		DAC6545815EB91E8000FC405 /* BackgroundV2.png in Resources */ = {isa = PBXBuildFile; fileRef = DAC6545715EB91E8000FC405 /* BackgroundV2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -653,6 +664,17 @@
 		DA83BAA015E7D76900A34EDE /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		DA83BAB015E7E7DD00A34EDE /* Guyana.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Guyana.png; sourceTree = "<group>"; };
 		DA83BAB215E7EA2500A34EDE /* EmergencyContact.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = EmergencyContact.sqlite; sourceTree = "<group>"; };
+		DAC6543B15EB5881000FC405 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		DAC6544515EB87BA000FC405 /* SOSIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SOSIcon.png; sourceTree = "<group>"; };
+		DAC6544615EB87BA000FC405 /* SOSIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SOSIcon@2x.png"; sourceTree = "<group>"; };
+		DAC6544915EB87D0000FC405 /* SOSIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SOSIcon.png; sourceTree = "<group>"; };
+		DAC6544B15EB87DB000FC405 /* SOSIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SOSIcon@2x.png"; sourceTree = "<group>"; };
+		DAC6544D15EB8FD6000FC405 /* LaunchImage320x480.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage320x480.png; sourceTree = "<group>"; };
+		DAC6544E15EB8FD6000FC405 /* LaunchImage640x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage640x960.png; sourceTree = "<group>"; };
+		DAC6545115EB8FE1000FC405 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		DAC6545315EB8FEA000FC405 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		DAC6545515EB90FE000FC405 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
+		DAC6545715EB91E8000FC405 /* BackgroundV2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackgroundV2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -660,6 +682,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAC6543C15EB5881000FC405 /* CoreLocation.framework in Frameworks */,
 				DA83BAA115E7D76900A34EDE /* libsqlite3.0.dylib in Frameworks */,
 				DA83B81215E7D5A300A34EDE /* UIKit.framework in Frameworks */,
 				DA83B81415E7D5A300A34EDE /* Foundation.framework in Frameworks */,
@@ -673,6 +696,10 @@
 		DA83B80215E7D5A300A34EDE = {
 			isa = PBXGroup;
 			children = (
+				DAC6545315EB8FEA000FC405 /* Default@2x.png */,
+				DAC6545115EB8FE1000FC405 /* Default.png */,
+				DAC6544B15EB87DB000FC405 /* SOSIcon@2x.png */,
+				DAC6544915EB87D0000FC405 /* SOSIcon.png */,
 				DA83B81715E7D5A300A34EDE /* SOS Contact */,
 				DA83B81015E7D5A300A34EDE /* Frameworks */,
 				DA83B80E15E7D5A300A34EDE /* Products */,
@@ -691,9 +718,10 @@
 			isa = PBXGroup;
 			children = (
 				DA83BAA015E7D76900A34EDE /* libsqlite3.0.dylib */,
-				DA83B81115E7D5A300A34EDE /* UIKit.framework */,
-				DA83B81315E7D5A300A34EDE /* Foundation.framework */,
 				DA83B81515E7D5A300A34EDE /* CoreGraphics.framework */,
+				DAC6543B15EB5881000FC405 /* CoreLocation.framework */,
+				DA83B81315E7D5A300A34EDE /* Foundation.framework */,
+				DA83B81115E7D5A300A34EDE /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -734,6 +762,7 @@
 		DA83B83415E7D62200A34EDE /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				DAC6543E15EB836C000FC405 /* Icons */,
 				DA83B83915E7D64F00A34EDE /* Flags */,
 			);
 			name = Graphics;
@@ -1087,6 +1116,19 @@
 				DA83B82315E7D5A300A34EDE /* MainStoryboard.storyboard */,
 			);
 			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		DAC6543E15EB836C000FC405 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				DAC6545515EB90FE000FC405 /* Background.png */,
+				DAC6545715EB91E8000FC405 /* BackgroundV2.png */,
+				DAC6544D15EB8FD6000FC405 /* LaunchImage320x480.png */,
+				DAC6544E15EB8FD6000FC405 /* LaunchImage640x960.png */,
+				DAC6544515EB87BA000FC405 /* SOSIcon.png */,
+				DAC6544615EB87BA000FC405 /* SOSIcon@2x.png */,
+			);
+			name = Icons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1449,6 +1491,16 @@
 				DA83BA9B15E7D65000A34EDE /* Zimbabwe.png in Resources */,
 				DA83BAB115E7E7DD00A34EDE /* Guyana.png in Resources */,
 				DA83BAB315E7EA2500A34EDE /* EmergencyContact.sqlite in Resources */,
+				DAC6544715EB87BA000FC405 /* SOSIcon.png in Resources */,
+				DAC6544815EB87BA000FC405 /* SOSIcon@2x.png in Resources */,
+				DAC6544A15EB87D0000FC405 /* SOSIcon.png in Resources */,
+				DAC6544C15EB87DB000FC405 /* SOSIcon@2x.png in Resources */,
+				DAC6544F15EB8FD6000FC405 /* LaunchImage320x480.png in Resources */,
+				DAC6545015EB8FD6000FC405 /* LaunchImage640x960.png in Resources */,
+				DAC6545215EB8FE1000FC405 /* Default.png in Resources */,
+				DAC6545415EB8FEA000FC405 /* Default@2x.png in Resources */,
+				DAC6545615EB90FE000FC405 /* Background.png in Resources */,
+				DAC6545815EB91E8000FC405 /* BackgroundV2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1577,6 +1629,7 @@
 				DA83B83015E7D5A300A34EDE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

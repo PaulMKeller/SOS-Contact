@@ -9,14 +9,19 @@
 #import <UIKit/UIKit.h>
 #import "CountryOM.h"
 #import "AppDelegate.h"
+#import <CoreLocation/CoreLocation.h>
 
 @class DetailViewController;
 
-@interface MasterViewController : UITableViewController <UITableViewDataSource>
+@interface MasterViewController : UITableViewController <UITableViewDataSource, CLLocationManagerDelegate>
 {
     AppDelegate *sharedDelegate;
+    BOOL updateLocation;
+    CLLocationManager * locationManager;
 }
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
+//@property (nonatomic, retain) CLLocationManager * locationManager;
+@property (strong, nonatomic) IBOutlet CLLocationManager *locationManager;
 
 @end

@@ -43,7 +43,13 @@
 //        self.detailDescriptionLabel.text = [self.detailItem description];
         CountryOM * detailCountry = self.detailItem;
         
-        self.imageFlag.image = detailCountry.flag;
+        //self.imageFlag.image = detailCountry.flag;
+        //self.imageFlag.image = [UIImage imageNamed:[NSString stringWithFormat:@"@%.png", detailCountry.country]];
+        
+        UIImage * flag;
+        flag = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", detailCountry.country, @".png"]];
+        self.imageFlag.image = flag;
+        
         self.countryTitle.text = detailCountry.country;
         self.policeNumber.text = [NSString stringWithFormat:@"%@", detailCountry.police];
         self.medicalNumber.text = [NSString stringWithFormat:@"%@", detailCountry.medical];

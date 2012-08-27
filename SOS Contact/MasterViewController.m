@@ -10,7 +10,9 @@
 #import "DetailViewController.h"
 
 @implementation MasterViewController
+@synthesize locationManager;
 @synthesize detailViewController = _detailViewController;
+//@synthesize locationManager;
 
 - (void)awakeFromNib
 {
@@ -33,11 +35,13 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    
+    locationManager.delegate = self;
+    [locationManager startUpdatingLocation];
 }
 
 - (void)viewDidUnload
 {
+    [self setLocationManager:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -152,6 +156,60 @@
     [sharedController setDetailItem:selectedCountry];
     
 }
+
+#pragma Geolocation Methods
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    
+    [manager stopUpdatingLocation];
+    
+    NSLog(@"Location: %@", [newLocation description]);
+    
+    __block BOOL isCountryFound = NO;
+    
+    CLGeocoder * geoCoder = [[CLGeocoder alloc] init];
+    [geoCoder reverseGeocodeLocation:newLocation completionHandler:^(NSArray *placemarks, NSError *error) {
+        for (CLPlacemark * placemark in placemarks) {
+            //currentCountry.text = [placemark country];
+            
+            NSInteger myIndex = 0;
+            for (CountryOM * localCountry in sharedDelegate.countriesArray) {
+                if ([localCountry.country isEqualToString:[placemark country]]) {
+                    isCountryFound = YES;
+                    //NSLog(@"Country: %@", currentCountry.text);                    
+                    
+                    NSIndexPath *scrollIndexPath = [NSIndexPath indexPathForRow:(myIndex) inSection:0];
+                    [[self tableView] scrollToRowAtIndexPath:scrollIndexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+                    
+                    break;
+                }
+                
+                if (isCountryFound == YES) {
+                    break;
+                }
+                
+                myIndex++;
+            }
+            
+            if (isCountryFound == YES) {
+                break;
+            }
+        }    
+    }];
+    
+//    if (isCountryFound == NO) {
+//        //don't do anything for the time being.
+//    }
+    
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"Error: %@", [error description]);
+}
+
 
 
 
