@@ -36,8 +36,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    locationManager.delegate = self;
-    [locationManager startUpdatingLocation];
+    [self scrollToCurrentLocation];
     
     [self setUpTableView];
 }
@@ -54,6 +53,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [self scrollToCurrentLocation];
     [super viewWillAppear:animated];
 }
 
@@ -192,6 +192,13 @@
 }
 
 #pragma Geolocation Methods
+- (void)scrollToCurrentLocation
+{
+    locationManager.delegate = self;
+    [locationManager startUpdatingLocation];
+}
+
+
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
@@ -243,6 +250,7 @@
 {
     NSLog(@"Error: %@", [error description]);
 }
+
 
 
 

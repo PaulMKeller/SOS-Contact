@@ -25,5 +25,6 @@
 @property (strong, nonatomic) IBOutlet UITableView *countriesTableView;
 
 - (void)setUpTableView;
+- (void)scrollToCurrentLocation;
 
 @end

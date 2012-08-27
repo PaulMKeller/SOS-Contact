@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AdditionalInformationViewController.h"
 
 @interface DetailViewController : UIViewController
 
@@ -16,8 +17,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *policeNumber;
 @property (strong, nonatomic) IBOutlet UILabel *medicalNumber;
 @property (strong, nonatomic) IBOutlet UILabel *fireNumber;
-@property (strong, nonatomic) IBOutlet UILabel *notesText;
+- (IBAction)setNoteDetailItem:(id)sender;
 
-
+@property (strong, nonatomic) AdditionalInformationViewController *notesViewController;
 
 @end

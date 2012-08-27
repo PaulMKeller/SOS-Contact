@@ -21,7 +21,7 @@
 @synthesize policeNumber = _policeNumber;
 @synthesize medicalNumber = _medicalNumber;
 @synthesize fireNumber = _fireNumber;
-@synthesize notesText = _notesText;
+@synthesize notesViewController = _notesViewController;
 
 #pragma mark - Managing the detail item
 
@@ -54,7 +54,7 @@
         self.policeNumber.text = [NSString stringWithFormat:@"%@", detailCountry.police];
         self.medicalNumber.text = [NSString stringWithFormat:@"%@", detailCountry.medical];
         self.fireNumber.text = [NSString stringWithFormat:@"%@", detailCountry.fire];
-        self.notesText.text = detailCountry.notes;
+        //self.notesText.text = detailCountry.notes;
         
         //NSLog(@"Police: %@", detailCountry.police);
         
@@ -65,6 +65,10 @@
 {
     [super didReceiveMemoryWarning];
     // Release any cached data, images, etc that aren't in use.
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    self.notesViewController=segue.destinationViewController;
 }
 
 #pragma mark - View lifecycle
@@ -83,7 +87,6 @@
     [self setPoliceNumber:nil];
     [self setMedicalNumber:nil];
     [self setFireNumber:nil];
-    [self setNotesText:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -115,4 +118,10 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
+- (IBAction)setNoteDetailItem:(id)sender {
+    CountryOM * detailCountry = self.detailItem;
+    
+    [self.notesViewController setDetailItem:detailCountry.notes];
+    
+}
 @end
