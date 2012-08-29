@@ -15,9 +15,13 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) NSMutableArray * countriesArray;
+@property (strong, nonatomic) NSMutableArray * bloodTypesArray;
+@property (strong, nonatomic) NSMutableArray * nationalitiesArray;
 
 - (NSString *)copyDatabaseToDocuments;
 - (void) readCountryDetailsFromDatabaseWithPath:(NSString *)filePath;
+- (void) createBloodTypesArray;
+- (void) createNationalitiesArray:(NSString *)filePath;
 
 
 @end

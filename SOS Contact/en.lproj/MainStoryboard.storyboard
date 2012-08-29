@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="10K549" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="10K549" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="wwd-XZ-KU6">
     <dependencies>
         <development defaultVersion="4200" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="933"/>
@@ -70,6 +70,171 @@
                 <customObject id="7GU-ct-Yjo" customClass="CLLocationManager"/>
             </objects>
             <point key="canvasLocation" x="455" y="64"/>
+        </scene>
+        <scene sceneID="b0Q-II-7Qp">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PYz-a7-3gY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="qse-JD-AKm" customClass="YourDetailsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="c63-Cd-dPs">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="BackgroundV2.png" id="xPQ-h7-VJS">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Nationality:" lineBreakMode="tailTruncation" minimumFontSize="10" id="D02-sZ-2q9">
+                                <rect key="frame" x="20" y="96" width="95" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Please select your nationality..." lineBreakMode="tailTruncation" minimumFontSize="10" id="efC-ad-wzl">
+                                <rect key="frame" x="20" y="130" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Please select your blood group..." lineBreakMode="tailTruncation" minimumFontSize="10" id="Vry-5h-4Tz">
+                                <rect key="frame" x="20" y="197" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Please select your emergency contact..." lineBreakMode="tailTruncation" minimumFontSize="10" id="hcu-zf-aad">
+                                <rect key="frame" x="20" y="261" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Please select your contact record..." lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="10" id="wPb-xa-osq">
+                                <rect key="frame" x="20" y="49" width="280" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Your Details:" lineBreakMode="tailTruncation" minimumFontSize="10" id="zP8-bo-iet">
+                                <rect key="frame" x="20" y="20" width="105" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Blood Group:" lineBreakMode="tailTruncation" minimumFontSize="10" id="lVp-nt-6Qj">
+                                <rect key="frame" x="20" y="168" width="105" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Emergency Contact:" lineBreakMode="tailTruncation" minimumFontSize="10" id="VfD-z4-ZH8">
+                                <rect key="frame" x="20" y="232" width="155" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" id="Psr-w9-Kl6">
+                                <rect key="frame" x="130" y="14" width="29" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectYourDetails:" destination="qse-JD-AKm" eventType="touchUpInside" id="w8B-gP-Nik"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" id="zH6-rh-IdW">
+                                <rect key="frame" x="130" y="90" width="29" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectNationality:" destination="qse-JD-AKm" eventType="touchUpInside" id="ncI-yz-Z59"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" id="AVH-Xi-Mzr">
+                                <rect key="frame" x="130" y="162" width="29" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectBloodGroup:" destination="qse-JD-AKm" eventType="touchUpInside" id="D4H-pc-j4i"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" id="Pkm-NF-gEH">
+                                <rect key="frame" x="180" y="226" width="29" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectEmergencyContact:" destination="qse-JD-AKm" eventType="touchUpInside" id="E2j-ZY-MgD"/>
+                                </connections>
+                            </button>
+                            <pickerView contentMode="scaleToFill" id="kZd-Sy-Tsd">
+                                <rect key="frame" x="0.0" y="200" width="320" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="qse-JD-AKm" id="DFO-YI-hC9"/>
+                                    <outlet property="delegate" destination="qse-JD-AKm" id="cBD-D5-FpF"/>
+                                </connections>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Your SOS Details" id="IK9-xN-aox"/>
+                    <connections>
+                        <outlet property="universalPickerView" destination="kZd-Sy-Tsd" id="HH1-7q-Ysj"/>
+                        <outlet property="yourBloodGroup" destination="Vry-5h-4Tz" id="7gv-LL-MO4"/>
+                        <outlet property="yourDetailsSummary" destination="wPb-xa-osq" id="fiU-VJ-Luf"/>
+                        <outlet property="yourEmergencyContactSummary" destination="hcu-zf-aad" id="4hN-4M-59b"/>
+                        <outlet property="yourNationality" destination="efC-ad-wzl" id="iCq-Om-Qgk"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="531" y="714"/>
+        </scene>
+        <scene sceneID="oZw-x1-21B">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Fa-fM-HDm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController definesPresentationContext="YES" id="wwd-XZ-KU6" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3aU-GQ-4oL">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="qse-JD-AKm" kind="relationship" relationship="rootViewController" id="dFc-3s-To7"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-5" y="714"/>
         </scene>
         <scene sceneID="24">
             <objects>
@@ -250,6 +415,20 @@
             <relationships>
                 <relationship kind="outlet" name="countriesTableView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="locationManager" candidateClass="CLLocationManager"/>
+            </relationships>
+        </class>
+        <class className="YourDetailsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/YourDetailsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="selectBloodGroup:"/>
+                <relationship kind="action" name="selectEmergencyContact:"/>
+                <relationship kind="action" name="selectNationality:"/>
+                <relationship kind="action" name="selectYourDetails:"/>
+                <relationship kind="outlet" name="universalPickerView" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="yourBloodGroup" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="yourDetailsSummary" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="yourEmergencyContactSummary" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="yourNationality" candidateClass="UILabel"/>
             </relationships>
         </class>
     </classes>

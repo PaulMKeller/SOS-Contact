@@ -12,16 +12,21 @@
 
 @synthesize window = _window;
 @synthesize countriesArray;
+@synthesize bloodTypesArray;
+@synthesize nationalitiesArray;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
     countriesArray = [[NSMutableArray alloc] init];
+    bloodTypesArray = [[NSMutableArray alloc] init];
+    nationalitiesArray = [[NSMutableArray alloc] init];
     
     NSString * filePath = [self copyDatabaseToDocuments];
     
     [self readCountryDetailsFromDatabaseWithPath:filePath];
-    
+    [self createBloodTypesArray];
+    [self createNationalitiesArray:filePath];
     
     return YES;
 }
@@ -117,9 +122,6 @@
                 
                 currCountry.flag = [UIImage imageNamed:[NSString stringWithFormat:@"@%.png", dbCountry]];
                 
-//                NSLog(@"Country:%@, any spaces" , dbCountry);
-//                NSLog(@"Police:%e" , dbPolice);
-                
                 [self.countriesArray addObject:currCountry];
             }
         } else
@@ -130,6 +132,40 @@
     }
     sqlite3_close(database);
     
+}
+
+- (void)createBloodTypesArray
+{
+    [self.bloodTypesArray addObject:@"Pick a Blood Type"];
+    [self.bloodTypesArray addObject:@"O+"];
+    [self.bloodTypesArray addObject:@"O-"];
+    [self.bloodTypesArray addObject:@"A+"];
+    [self.bloodTypesArray addObject:@"A-"];
+    [self.bloodTypesArray addObject:@"B+"];
+    [self.bloodTypesArray addObject:@"B-"];
+    [self.bloodTypesArray addObject:@"AB+"];
+    [self.bloodTypesArray addObject:@"AB-"];
+}
+
+- (void)createNationalitiesArray:(NSString *)filePath
+{
+    sqlite3 * database;
+    if (sqlite3_open([filePath UTF8String], &database) == SQLITE_OK) {
+        const char * sqlStatement = "SELECT Nationality FROM Nationality order by Nationality";
+        sqlite3_stmt * compiledStatement;
+        if (sqlite3_prepare_v2(database, sqlStatement, -1, &compiledStatement, NULL) == SQLITE_OK) {
+            while (sqlite3_step(compiledStatement) == SQLITE_ROW) {
+                NSString * dbNationality =  [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 0)];
+                
+                [self.nationalitiesArray addObject:dbNationality];
+            }
+        } else
+        {
+            printf( "could not prepare statement: %s\n", sqlite3_errmsg(database) );
+        }
+        sqlite3_finalize(compiledStatement);
+    }
+    sqlite3_close(database);
 }
 
 
