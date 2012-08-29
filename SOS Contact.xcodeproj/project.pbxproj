@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA34013E15EBC45F0062CAF8 /* AdditionalInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA34013D15EBC45F0062CAF8 /* AdditionalInformationViewController.m */; };
+		DA34014615ED54DF0062CAF8 /* YourDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA34014515ED54DF0062CAF8 /* YourDetailsViewController.m */; };
+		DA34015015ED6D6A0062CAF8 /* EmergencyContact.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = DA34014F15ED6D6A0062CAF8 /* EmergencyContact.sqlite */; };
 		DA83B81215E7D5A300A34EDE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA83B81115E7D5A300A34EDE /* UIKit.framework */; };
 		DA83B81415E7D5A300A34EDE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA83B81315E7D5A300A34EDE /* Foundation.framework */; };
 		DA83B81615E7D5A300A34EDE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA83B81515E7D5A300A34EDE /* CoreGraphics.framework */; };
@@ -305,7 +308,7 @@
 		DA83BA8915E7D65000A34EDE /* United Nations.png in Resources */ = {isa = PBXBuildFile; fileRef = DA83B95815E7D64F00A34EDE /* United Nations.png */; };
 		DA83BA8A15E7D65000A34EDE /* United States Virgin Islands.png in Resources */ = {isa = PBXBuildFile; fileRef = DA83B95915E7D64F00A34EDE /* United States Virgin Islands.png */; };
 		DA83BA8B15E7D65000A34EDE /* Uruguay.png in Resources */ = {isa = PBXBuildFile; fileRef = DA83B95A15E7D64F00A34EDE /* Uruguay.png */; };
-		DA83BA8C15E7D65000A34EDE /* USA.png in Resources */ = {isa = PBXBuildFile; fileRef = DA83B95B15E7D64F00A34EDE /* USA.png */; };
+		DA83BA8C15E7D65000A34EDE /* United States of America.png in Resources */ = {isa = PBXBuildFile; fileRef = DA83B95B15E7D64F00A34EDE /* United States of America.png */; };
 		DA83BA8D15E7D65000A34EDE /* Uzbekistan.png in Resources */ = {isa = PBXBuildFile; fileRef = DA83B95C15E7D64F00A34EDE /* Uzbekistan.png */; };
 		DA83BA8E15E7D65000A34EDE /* v7_flags_Png.rar in Resources */ = {isa = PBXBuildFile; fileRef = DA83B95D15E7D64F00A34EDE /* v7_flags_Png.rar */; };
 		DA83BA8F15E7D65000A34EDE /* Vanuatu.png in Resources */ = {isa = PBXBuildFile; fileRef = DA83B95E15E7D64F00A34EDE /* Vanuatu.png */; };
@@ -324,7 +327,6 @@
 		DA83BA9E15E7D6D700A34EDE /* CountryOM.m in Sources */ = {isa = PBXBuildFile; fileRef = DA83BA9D15E7D6D700A34EDE /* CountryOM.m */; };
 		DA83BAA115E7D76900A34EDE /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DA83BAA015E7D76900A34EDE /* libsqlite3.0.dylib */; };
 		DA83BAB115E7E7DD00A34EDE /* Guyana.png in Resources */ = {isa = PBXBuildFile; fileRef = DA83BAB015E7E7DD00A34EDE /* Guyana.png */; };
-		DA83BAB315E7EA2500A34EDE /* EmergencyContact.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = DA83BAB215E7EA2500A34EDE /* EmergencyContact.sqlite */; };
 		DAC6543C15EB5881000FC405 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC6543B15EB5881000FC405 /* CoreLocation.framework */; };
 		DAC6544715EB87BA000FC405 /* SOSIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = DAC6544515EB87BA000FC405 /* SOSIcon.png */; };
 		DAC6544815EB87BA000FC405 /* SOSIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAC6544615EB87BA000FC405 /* SOSIcon@2x.png */; };
@@ -339,6 +341,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DA34013C15EBC45F0062CAF8 /* AdditionalInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdditionalInformationViewController.h; sourceTree = "<group>"; };
+		DA34013D15EBC45F0062CAF8 /* AdditionalInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdditionalInformationViewController.m; sourceTree = "<group>"; };
+		DA34014415ED54DF0062CAF8 /* YourDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YourDetailsViewController.h; sourceTree = "<group>"; };
+		DA34014515ED54DF0062CAF8 /* YourDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YourDetailsViewController.m; sourceTree = "<group>"; };
+		DA34014E15ED5F960062CAF8 /* SOSConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOSConfig.h; sourceTree = "<group>"; };
+		DA34014F15ED6D6A0062CAF8 /* EmergencyContact.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = EmergencyContact.sqlite; sourceTree = "<group>"; };
 		DA83B80D15E7D5A300A34EDE /* SOS Contact.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SOS Contact.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA83B81115E7D5A300A34EDE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DA83B81315E7D5A300A34EDE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -643,7 +651,7 @@
 		DA83B95815E7D64F00A34EDE /* United Nations.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "United Nations.png"; sourceTree = "<group>"; };
 		DA83B95915E7D64F00A34EDE /* United States Virgin Islands.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "United States Virgin Islands.png"; sourceTree = "<group>"; };
 		DA83B95A15E7D64F00A34EDE /* Uruguay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Uruguay.png; sourceTree = "<group>"; };
-		DA83B95B15E7D64F00A34EDE /* USA.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = USA.png; sourceTree = "<group>"; };
+		DA83B95B15E7D64F00A34EDE /* United States of America.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "United States of America.png"; sourceTree = "<group>"; };
 		DA83B95C15E7D64F00A34EDE /* Uzbekistan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Uzbekistan.png; sourceTree = "<group>"; };
 		DA83B95D15E7D64F00A34EDE /* v7_flags_Png.rar */ = {isa = PBXFileReference; lastKnownFileType = file; path = v7_flags_Png.rar; sourceTree = "<group>"; };
 		DA83B95E15E7D64F00A34EDE /* Vanuatu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Vanuatu.png; sourceTree = "<group>"; };
@@ -663,7 +671,6 @@
 		DA83BA9D15E7D6D700A34EDE /* CountryOM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountryOM.m; sourceTree = "<group>"; };
 		DA83BAA015E7D76900A34EDE /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		DA83BAB015E7E7DD00A34EDE /* Guyana.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Guyana.png; sourceTree = "<group>"; };
-		DA83BAB215E7EA2500A34EDE /* EmergencyContact.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = EmergencyContact.sqlite; sourceTree = "<group>"; };
 		DAC6543B15EB5881000FC405 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		DAC6544515EB87BA000FC405 /* SOSIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SOSIcon.png; sourceTree = "<group>"; };
 		DAC6544615EB87BA000FC405 /* SOSIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SOSIcon@2x.png"; sourceTree = "<group>"; };
@@ -693,6 +700,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA34014C15ED5F550062CAF8 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				DA34014E15ED5F960062CAF8 /* SOSConfig.h */,
+			);
+			name = Configuration;
+			sourceTree = "<group>";
+		};
 		DA83B80215E7D5A300A34EDE = {
 			isa = PBXGroup;
 			children = (
@@ -729,6 +744,7 @@
 		DA83B81715E7D5A300A34EDE /* SOS Contact */ = {
 			isa = PBXGroup;
 			children = (
+				DA34014C15ED5F550062CAF8 /* Configuration */,
 				DA83BAB615E7EBC600A34EDE /* Storyboards */,
 				DA83BAB515E7EBB400A34EDE /* Delegates */,
 				DA83BAB415E7EB9400A34EDE /* Controllers */,
@@ -754,7 +770,7 @@
 		DA83B83115E7D5C500A34EDE /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				DA83BAB215E7EA2500A34EDE /* EmergencyContact.sqlite */,
+				DA34014F15ED6D6A0062CAF8 /* EmergencyContact.sqlite */,
 			);
 			name = Database;
 			sourceTree = "<group>";
@@ -1061,7 +1077,7 @@
 				DA83B95815E7D64F00A34EDE /* United Nations.png */,
 				DA83B95915E7D64F00A34EDE /* United States Virgin Islands.png */,
 				DA83B95A15E7D64F00A34EDE /* Uruguay.png */,
-				DA83B95B15E7D64F00A34EDE /* USA.png */,
+				DA83B95B15E7D64F00A34EDE /* United States of America.png */,
 				DA83B95C15E7D64F00A34EDE /* Uzbekistan.png */,
 				DA83B95D15E7D64F00A34EDE /* v7_flags_Png.rar */,
 				DA83B95E15E7D64F00A34EDE /* Vanuatu.png */,
@@ -1097,6 +1113,10 @@
 				DA83B82715E7D5A300A34EDE /* MasterViewController.m */,
 				DA83B82915E7D5A300A34EDE /* DetailViewController.h */,
 				DA83B82A15E7D5A300A34EDE /* DetailViewController.m */,
+				DA34013C15EBC45F0062CAF8 /* AdditionalInformationViewController.h */,
+				DA34013D15EBC45F0062CAF8 /* AdditionalInformationViewController.m */,
+				DA34014415ED54DF0062CAF8 /* YourDetailsViewController.h */,
+				DA34014515ED54DF0062CAF8 /* YourDetailsViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1473,7 +1493,7 @@
 				DA83BA8915E7D65000A34EDE /* United Nations.png in Resources */,
 				DA83BA8A15E7D65000A34EDE /* United States Virgin Islands.png in Resources */,
 				DA83BA8B15E7D65000A34EDE /* Uruguay.png in Resources */,
-				DA83BA8C15E7D65000A34EDE /* USA.png in Resources */,
+				DA83BA8C15E7D65000A34EDE /* United States of America.png in Resources */,
 				DA83BA8D15E7D65000A34EDE /* Uzbekistan.png in Resources */,
 				DA83BA8E15E7D65000A34EDE /* v7_flags_Png.rar in Resources */,
 				DA83BA8F15E7D65000A34EDE /* Vanuatu.png in Resources */,
@@ -1490,7 +1510,6 @@
 				DA83BA9A15E7D65000A34EDE /* Zambia.png in Resources */,
 				DA83BA9B15E7D65000A34EDE /* Zimbabwe.png in Resources */,
 				DA83BAB115E7E7DD00A34EDE /* Guyana.png in Resources */,
-				DA83BAB315E7EA2500A34EDE /* EmergencyContact.sqlite in Resources */,
 				DAC6544715EB87BA000FC405 /* SOSIcon.png in Resources */,
 				DAC6544815EB87BA000FC405 /* SOSIcon@2x.png in Resources */,
 				DAC6544A15EB87D0000FC405 /* SOSIcon.png in Resources */,
@@ -1501,6 +1520,7 @@
 				DAC6545415EB8FEA000FC405 /* Default@2x.png in Resources */,
 				DAC6545615EB90FE000FC405 /* Background.png in Resources */,
 				DAC6545815EB91E8000FC405 /* BackgroundV2.png in Resources */,
+				DA34015015ED6D6A0062CAF8 /* EmergencyContact.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1516,6 +1536,8 @@
 				DA83B82815E7D5A300A34EDE /* MasterViewController.m in Sources */,
 				DA83B82B15E7D5A300A34EDE /* DetailViewController.m in Sources */,
 				DA83BA9E15E7D6D700A34EDE /* CountryOM.m in Sources */,
+				DA34013E15EBC45F0062CAF8 /* AdditionalInformationViewController.m in Sources */,
+				DA34014615ED54DF0062CAF8 /* YourDetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
