@@ -17,8 +17,11 @@
 @property (strong, nonatomic) IBOutlet UILabel *policeNumber;
 @property (strong, nonatomic) IBOutlet UILabel *medicalNumber;
 @property (strong, nonatomic) IBOutlet UILabel *fireNumber;
-- (IBAction)setNoteDetailItem:(id)sender;
-
 @property (strong, nonatomic) AdditionalInformationViewController *notesViewController;
+
+- (IBAction)setNoteDetailItem:(id)sender;
+- (IBAction)callPolice:(id)sender;
+- (IBAction)callMedical:(id)sender;
+- (IBAction)callFire:(id)sender;
 
 @end

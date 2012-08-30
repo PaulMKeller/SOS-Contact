@@ -13,9 +13,13 @@
 @synthesize yourNationality;
 @synthesize yourBloodGroup;
 @synthesize yourEmergencyContactSummary;
+@synthesize yourEmergencyContactNumber;
 @synthesize universalPickerView;
 @synthesize sharedDelegate;
 @synthesize pickerType;
+@synthesize yourContactRecord;
+@synthesize yourEmergencyContactRecord;
+@synthesize contactType;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -70,6 +74,7 @@
     [self setYourBloodGroup:nil];
     [self setYourEmergencyContactSummary:nil];
     [self setUniversalPickerView:nil];
+    [self setYourEmergencyContactNumber:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -82,6 +87,12 @@
 }
 
 - (IBAction)selectYourDetails:(id)sender {
+    contactType = K_YOUR_RECORD_KEY;
+    
+    ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
+    picker.peoplePickerDelegate = self;
+    
+    [self presentModalViewController:picker animated:YES];
 }
 
 - (IBAction)selectNationality:(id)sender {
@@ -121,6 +132,12 @@
 }
 
 - (IBAction)selectEmergencyContact:(id)sender {
+    contactType = K_EMERGENCY_RECORD_KEY;
+    
+    ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
+    picker.peoplePickerDelegate = self;
+    
+    [self presentModalViewController:picker animated:YES];
 }
 
 
@@ -184,8 +201,66 @@
     
 }
 
+#pragma AddressBook Methods
+- (void)peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker
+{
+    [self dismissModalViewControllerAnimated:YES];
+}
 
 
+- (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person {
+    
+    [self displayPerson:person];
+    [self dismissModalViewControllerAnimated:YES];
+    
+    return NO;
+}
+
+- (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person property:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifier
+{
+    return NO;
+}
+
+- (void)displayPerson:(ABRecordRef)person
+{
+    NSUserDefaults * defaults  = [NSUserDefaults standardUserDefaults];
+    
+    NSString* firstName = (__bridge_transfer NSString*)ABRecordCopyValue(person, kABPersonFirstNameProperty);
+    NSString* lastName = (__bridge_transfer NSString*)ABRecordCopyValue(person, kABPersonLastNameProperty);
+    
+    if (contactType == K_YOUR_RECORD_KEY) {
+        
+        self.yourDetailsSummary.text = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
+        [defaults setObject:firstName forKey:K_YOU_FIRST_NAME];
+        [defaults setObject:firstName forKey:K_YOU_LAST_NAME];
+        
+        //yourContactRecord = person;
+    } 
+    else 
+    {
+        NSString * number = (__bridge_transfer NSString*)ABRecordCopyValue(person, kABPersonPhoneProperty);
+        self.yourEmergencyContactSummary.text = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
+        self.yourEmergencyContactNumber.text = number;
+        
+        [defaults setObject:firstName forKey:K_SOS_FIRST_NAME];
+        [defaults setObject:lastName forKey:K_SOS_LAST_NAME];
+        [defaults setObject:number forKey:K_SOS_NUMBER];
+        
+        //yourEmergencyContactRecord = person;
+    }
+    
+    
+//    NSString* phone = nil;
+//    ABMultiValueRef phoneNumbers = ABRecordCopyValue(person,
+//                                                     kABPersonPhoneProperty);
+//    if (ABMultiValueGetCount(phoneNumbers) > 0) {
+//        phone = (__bridge_transfer NSString*)
+//        ABMultiValueCopyValueAtIndex(phoneNumbers, 0);
+//    } else {
+//        phone = @"[None]";
+//    }
+//    //self.phoneNumber.text = phone;
+}
 
 
 

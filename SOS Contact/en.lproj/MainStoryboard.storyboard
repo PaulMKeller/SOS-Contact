@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="10K549" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="wwd-XZ-KU6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="10K549" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="1iO-PS-gta">
     <dependencies>
         <development defaultVersion="4200" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="933"/>
@@ -9,6 +9,7 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
                 <navigationController id="3" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="SOS List" id="zBi-Ny-JRA"/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="4">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -24,7 +25,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
                 <tableViewController storyboardIdentifier="" title="Master" id="12" customClass="MasterViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="13">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -76,11 +77,11 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PYz-a7-3gY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="qse-JD-AKm" customClass="YourDetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c63-Cd-dPs">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="BackgroundV2.png" id="xPQ-h7-VJS">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Nationality:" lineBreakMode="tailTruncation" minimumFontSize="10" id="D02-sZ-2q9">
@@ -106,6 +107,13 @@
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Please select your emergency contact..." lineBreakMode="tailTruncation" minimumFontSize="10" id="hcu-zf-aad">
                                 <rect key="frame" x="20" y="261" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" minimumFontSize="10" id="mL0-vr-cYa">
+                                <rect key="frame" x="20" y="290" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -200,7 +208,7 @@
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" id="kZd-Sy-Tsd">
-                                <rect key="frame" x="0.0" y="200" width="320" height="216"/>
+                                <rect key="frame" x="0.0" y="151" width="320" height="216"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="dataSource" destination="qse-JD-AKm" id="DFO-YI-hC9"/>
@@ -215,6 +223,7 @@
                         <outlet property="universalPickerView" destination="kZd-Sy-Tsd" id="HH1-7q-Ysj"/>
                         <outlet property="yourBloodGroup" destination="Vry-5h-4Tz" id="7gv-LL-MO4"/>
                         <outlet property="yourDetailsSummary" destination="wPb-xa-osq" id="fiU-VJ-Luf"/>
+                        <outlet property="yourEmergencyContactNumber" destination="mL0-vr-cYa" id="egQ-I0-yaO"/>
                         <outlet property="yourEmergencyContactSummary" destination="hcu-zf-aad" id="4hN-4M-59b"/>
                         <outlet property="yourNationality" destination="efC-ad-wzl" id="iCq-Om-Qgk"/>
                     </connections>
@@ -222,10 +231,30 @@
             </objects>
             <point key="canvasLocation" x="531" y="714"/>
         </scene>
+        <scene sceneID="Ice-zg-TCd">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XkZ-33-q84" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tabBarController definesPresentationContext="YES" id="1iO-PS-gta" sceneMemberID="viewController">
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Q5a-BF-4yJ">
+                        <rect key="frame" x="129" y="330" width="163" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="3" kind="relationship" relationship="viewControllers" id="kFn-Hy-jsx"/>
+                        <segue destination="wwd-XZ-KU6" kind="relationship" relationship="viewControllers" id="0FP-v1-VWk"/>
+                        <segue destination="qSB-R5-Lpz" kind="relationship" relationship="viewControllers" id="Ng3-Kk-BZr"/>
+                    </connections>
+                </tabBarController>
+            </objects>
+            <point key="canvasLocation" x="-608" y="714"/>
+        </scene>
         <scene sceneID="oZw-x1-21B">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Fa-fM-HDm" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController definesPresentationContext="YES" id="wwd-XZ-KU6" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Your Details" id="F1D-Vp-JTZ"/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3aU-GQ-4oL">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -236,12 +265,54 @@
             </objects>
             <point key="canvasLocation" x="-5" y="714"/>
         </scene>
+        <scene sceneID="SjM-6v-oau">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lpx-lN-B5a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="qSB-R5-Lpz" customClass="SendMessageViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ccq-Cc-Ruk">
+                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="LaunchImage320x480.png" id="79f-ma-uxE">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="411"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Sqr-Vo-u67">
+                                <rect key="frame" x="36" y="300" width="248" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="15"/>
+                                <state key="normal" title="SEND SOS TEXT">
+                                    <color key="titleColor" red="0.64285714289999996" green="0.01461038961" blue="0.01461038961" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendMessage:" destination="qSB-R5-Lpz" eventType="touchUpInside" id="mwq-ZP-q6r"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" id="QiT-Cb-Jp5">
+                                <rect key="frame" x="150" y="339" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Send SOS" id="tWa-yT-qgy"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="QiT-Cb-Jp5" id="9D1-fx-ZmE"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-5" y="1362"/>
+        </scene>
         <scene sceneID="24">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="" title="Detail" id="21" customClass="DetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="22">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="BackgroundV2.png" id="eug-3Q-XFb">
@@ -288,21 +359,21 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" minimumFontSize="10" id="JBC-B9-zVT">
-                                <rect key="frame" x="112" y="87" width="188" height="21"/>
+                                <rect key="frame" x="112" y="87" width="122" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" minimumFontSize="10" id="ASP-uw-rKP">
-                                <rect key="frame" x="112" y="116" width="188" height="21"/>
+                                <rect key="frame" x="112" y="116" width="122" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" minimumFontSize="10" id="16H-EU-HUi">
-                                <rect key="frame" x="112" y="145" width="188" height="21"/>
+                                <rect key="frame" x="112" y="145" width="122" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -317,7 +388,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" id="oea-Lp-mUs">
-                                <rect key="frame" x="267" y="168" width="29" height="31"/>
+                                <rect key="frame" x="192" y="168" width="29" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal">
@@ -330,6 +401,51 @@
                                 <connections>
                                     <action selector="setNoteDetailItem:" destination="21" eventType="touchUpInside" id="aIT-rr-qhV"/>
                                     <segue destination="lMr-JF-Qlc" kind="push" id="CKa-3q-fPK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="D4u-10-q0H">
+                                <rect key="frame" x="252" y="84" width="58" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="15"/>
+                                <state key="normal" title="CALL">
+                                    <color key="titleColor" red="0.64285714289999996" green="0.01461038961" blue="0.01461038961" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="callPolice:" destination="21" eventType="touchUpInside" id="idW-N0-BeT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="d99-cB-IBS">
+                                <rect key="frame" x="252" y="113" width="58" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="15"/>
+                                <state key="normal" title="CALL">
+                                    <color key="titleColor" red="0.64285714289999996" green="0.01461038961" blue="0.01461038961" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="callMedical:" destination="21" eventType="touchUpInside" id="M55-PJ-s9k"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5Y7-sP-CUf">
+                                <rect key="frame" x="252" y="143" width="58" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="15"/>
+                                <state key="normal" title="CALL">
+                                    <color key="titleColor" red="0.64285714289999996" green="0.01461038961" blue="0.01461038961" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="callFire:" destination="21" eventType="touchUpInside" id="ukh-0I-z2j"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -352,11 +468,11 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2tT-Ds-ZmB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="lMr-JF-Qlc" customClass="AdditionalInformationViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Iql-Ot-UgH">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="BackgroundV2.png" id="TNv-rq-lwm">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Additional Information:" lineBreakMode="tailTruncation" minimumFontSize="10" id="9sN-yQ-wLK">
@@ -388,6 +504,7 @@
     <resources>
         <image name="Aaland.PNG" width="256" height="256"/>
         <image name="BackgroundV2.png" width="371" height="495"/>
+        <image name="LaunchImage320x480.png" width="320" height="480"/>
     </resources>
     <classes>
         <class className="AdditionalInformationViewController" superclassName="UIViewController">
@@ -402,6 +519,9 @@
         <class className="DetailViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
             <relationships>
+                <relationship kind="action" name="callFire:"/>
+                <relationship kind="action" name="callMedical:"/>
+                <relationship kind="action" name="callPolice:"/>
                 <relationship kind="action" name="setNoteDetailItem:"/>
                 <relationship kind="outlet" name="countryTitle" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="fireNumber" candidateClass="UILabel"/>
@@ -417,6 +537,13 @@
                 <relationship kind="outlet" name="locationManager" candidateClass="CLLocationManager"/>
             </relationships>
         </class>
+        <class className="SendMessageViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SendMessageViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="sendMessage:"/>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+            </relationships>
+        </class>
         <class className="YourDetailsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/YourDetailsViewController.h"/>
             <relationships>
@@ -427,6 +554,7 @@
                 <relationship kind="outlet" name="universalPickerView" candidateClass="UIPickerView"/>
                 <relationship kind="outlet" name="yourBloodGroup" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="yourDetailsSummary" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="yourEmergencyContactNumber" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="yourEmergencyContactSummary" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="yourNationality" candidateClass="UILabel"/>
             </relationships>

@@ -124,4 +124,19 @@
     [self.notesViewController setDetailItem:detailCountry.notes];
     
 }
+
+- (IBAction)callPolice:(id)sender {
+    NSString * numberToCall = [NSString stringWithFormat:@"tel:%@", self.policeNumber.text];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:numberToCall]];
+}
+
+- (IBAction)callMedical:(id)sender {
+        NSString * numberToCall = [NSString stringWithFormat:@"tel:%@", self.medicalNumber.text];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:numberToCall]];
+}
+
+- (IBAction)callFire:(id)sender {
+        NSString * numberToCall = [NSString stringWithFormat:@"tel:%@", self.fireNumber.text];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:numberToCall]];
+}
 @end
