@@ -327,6 +327,9 @@
 		DA83BA9E15E7D6D700A34EDE /* CountryOM.m in Sources */ = {isa = PBXBuildFile; fileRef = DA83BA9D15E7D6D700A34EDE /* CountryOM.m */; };
 		DA83BAA115E7D76900A34EDE /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DA83BAA015E7D76900A34EDE /* libsqlite3.0.dylib */; };
 		DA83BAB115E7E7DD00A34EDE /* Guyana.png in Resources */ = {isa = PBXBuildFile; fileRef = DA83BAB015E7E7DD00A34EDE /* Guyana.png */; };
+		DAA59AE916126E9700F34FA2 /* mail_send_30px.png in Resources */ = {isa = PBXBuildFile; fileRef = DAA59AE816126E9700F34FA2 /* mail_send_30px.png */; };
+		DAA59AEB16126F4F00F34FA2 /* Person_30px.png in Resources */ = {isa = PBXBuildFile; fileRef = DAA59AEA16126F4F00F34FA2 /* Person_30px.png */; };
+		DAA59AED1612715000F34FA2 /* SOSTabIcon_30px.png in Resources */ = {isa = PBXBuildFile; fileRef = DAA59AEC1612715000F34FA2 /* SOSTabIcon_30px.png */; };
 		DAAA215815EE7C75006CD7DD /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAAA215615EE7C75006CD7DD /* AddressBook.framework */; };
 		DAAA215915EE7C75006CD7DD /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAAA215715EE7C75006CD7DD /* AddressBookUI.framework */; };
 		DAAA216315EF3C7F006CD7DD /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAAA216215EF3C7F006CD7DD /* MessageUI.framework */; };
@@ -675,6 +678,9 @@
 		DA83BA9D15E7D6D700A34EDE /* CountryOM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountryOM.m; sourceTree = "<group>"; };
 		DA83BAA015E7D76900A34EDE /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		DA83BAB015E7E7DD00A34EDE /* Guyana.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Guyana.png; sourceTree = "<group>"; };
+		DAA59AE816126E9700F34FA2 /* mail_send_30px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mail_send_30px.png; sourceTree = "<group>"; };
+		DAA59AEA16126F4F00F34FA2 /* Person_30px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Person_30px.png; sourceTree = "<group>"; };
+		DAA59AEC1612715000F34FA2 /* SOSTabIcon_30px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SOSTabIcon_30px.png; sourceTree = "<group>"; };
 		DAAA215615EE7C75006CD7DD /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		DAAA215715EE7C75006CD7DD /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		DAAA216215EF3C7F006CD7DD /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -1166,6 +1172,9 @@
 		DAC6543E15EB836C000FC405 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				DAA59AEC1612715000F34FA2 /* SOSTabIcon_30px.png */,
+				DAA59AEA16126F4F00F34FA2 /* Person_30px.png */,
+				DAA59AE816126E9700F34FA2 /* mail_send_30px.png */,
 				DAC6545515EB90FE000FC405 /* Background.png */,
 				DAC6545715EB91E8000FC405 /* BackgroundV2.png */,
 				DAC6544D15EB8FD6000FC405 /* LaunchImage320x480.png */,
@@ -1546,6 +1555,9 @@
 				DAC6545615EB90FE000FC405 /* Background.png in Resources */,
 				DAC6545815EB91E8000FC405 /* BackgroundV2.png in Resources */,
 				DA34015015ED6D6A0062CAF8 /* EmergencyContact.sqlite in Resources */,
+				DAA59AE916126E9700F34FA2 /* mail_send_30px.png in Resources */,
+				DAA59AEB16126F4F00F34FA2 /* Person_30px.png in Resources */,
+				DAA59AED1612715000F34FA2 /* SOSTabIcon_30px.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

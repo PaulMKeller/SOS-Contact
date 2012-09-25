@@ -9,7 +9,7 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
                 <navigationController id="3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="SOS List" id="zBi-Ny-JRA"/>
+                    <tabBarItem key="tabBarItem" title="SOS List" image="SOSTabIcon_30px.png" id="zBi-Ny-JRA"/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="4">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -254,7 +254,7 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Fa-fM-HDm" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController definesPresentationContext="YES" id="wwd-XZ-KU6" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Your Details" id="F1D-Vp-JTZ"/>
+                    <tabBarItem key="tabBarItem" title="Your Details" image="Person_30px.png" id="F1D-Vp-JTZ"/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3aU-GQ-4oL">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -299,7 +299,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Send SOS" id="tWa-yT-qgy"/>
+                    <tabBarItem key="tabBarItem" title="Send SOS" image="mail_send_30px.png" id="tWa-yT-qgy"/>
                     <connections>
                         <outlet property="activityIndicator" destination="Xmz-NC-2M0" id="kcP-tY-xJu"/>
                         <outlet property="locationManager" destination="Hn8-UG-WqB" id="uiE-KO-ye4"/>
@@ -507,6 +507,9 @@
         <image name="Aaland.PNG" width="256" height="256"/>
         <image name="BackgroundV2.png" width="371" height="495"/>
         <image name="LaunchImage320x480.png" width="320" height="480"/>
+        <image name="Person_30px.png" width="30" height="30"/>
+        <image name="SOSTabIcon_30px.png" width="30" height="30"/>
+        <image name="mail_send_30px.png" width="30" height="30"/>
     </resources>
     <classes>
         <class className="AdditionalInformationViewController" superclassName="UIViewController">
