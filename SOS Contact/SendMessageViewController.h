@@ -19,8 +19,11 @@
 
 @property (strong, nonatomic) IBOutlet CLLocationManager *locationManager;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+
 @property (strong, nonatomic) NSString * geoLocation;
 @property (strong, nonatomic) NSString * textLocation;
 - (IBAction)sendMessage:(id)sender;
+
+- (void)composeMessage;
 
 @end

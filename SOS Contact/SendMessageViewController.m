@@ -9,8 +9,9 @@
 #import "SendMessageViewController.h"
 
 @implementation SendMessageViewController
-@synthesize activityIndicator;
+
 @synthesize locationManager;
+@synthesize activityIndicator;
 @synthesize geoLocation;
 @synthesize textLocation;
 
@@ -53,8 +54,8 @@
 
 - (void)viewDidUnload
 {
-    [self setActivityIndicator:nil];
     [self setLocationManager:nil];
+    [self setActivityIndicator:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -67,8 +68,27 @@
 }
 
 - (IBAction)sendMessage:(id)sender {
-    activityIndicator.hidden = NO;
+    
+//    if (activityIndicator.isAnimating) {
+//        [activityIndicator stopAnimating];
+//    }
+//    else
+//    {
+//        [activityIndicator startAnimating];
+//    }
+    
     [activityIndicator startAnimating];
+     
+//    [self composeMessage];
+    [self performSelector: @selector(composeMessage) 
+               withObject: nil 
+               afterDelay: 0];
+    
+    
+}
+
+- (void)composeMessage
+{
     MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
     if([MFMessageComposeViewController canSendText])
     {
@@ -104,16 +124,26 @@
             bloodGroupString = @"";
         }
         
+        NSString * geoLocatioString;
+        if (geoLocation != nil) {
+            geoLocatioString = [NSString stringWithFormat:@" I'm here: %@. ", geoLocation];
+        }
+        else
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Location not found" message:@"Your location was not found. Try cancelling this message and trying again or manually enter your location." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+            
+            geoLocatioString = @" I'm here: <Location>. ";
+        }
         
-        NSString * messageBody = [NSString stringWithFormat:@"EMERGENCY SOS.%@%@%@Here is my GeoLocation: %@. I'm here: %@. SEND HELP.", nameString, nationalityString, bloodGroupString, geoLocation, textLocation];
-        
+        NSString * messageBody = [NSString stringWithFormat:@"EMERGENCY SOS.%@%@%@%@. SEND HELP.", nameString, nationalityString, bloodGroupString, geoLocation];
         
         controller.body = messageBody;    
         //controller.recipients = recipients;
         controller.messageComposeDelegate = self;
         [self presentModalViewController:controller animated:YES];
-    } 
-    activityIndicator.hidden = YES;
+    }
+    
     [activityIndicator stopAnimating];
 }
 
@@ -146,26 +176,27 @@
     CLGeocoder * geoCoder = [[CLGeocoder alloc] init];
     [geoCoder reverseGeocodeLocation:newLocation completionHandler:^(NSArray *placemarks, NSError *error) {
         for (CLPlacemark * placemark in placemarks) {
-            //NSLog(@"Placemark: %@", placemark);
-            //NSLog(@"Region: %@", [placemark region]);
-            geoLocation = [NSString stringWithFormat:@"%@", [placemark region]];
-            
-            NSDictionary *placemarkDictionary = [placemark addressDictionary];
-            NSString * placemarkAddress = [[placemarkDictionary objectForKey:@"FormattedAddressLines"] description];
-            //NSLog(@"placemarkAddress: %@", placemarkAddress);
-            
-            //Let's tidy up the address
-            placemarkAddress = [placemarkAddress stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-            placemarkAddress = [placemarkAddress stringByReplacingOccurrencesOfString:@"\"" withString:@""];
-            placemarkAddress = [placemarkAddress stringByReplacingOccurrencesOfString:@"(" withString:@""];
-            placemarkAddress = [placemarkAddress stringByReplacingOccurrencesOfString:@")" withString:@""];
-            placemarkAddress = [placemarkAddress stringByReplacingOccurrencesOfString:@"\t" withString:@""];
-            placemarkAddress = [placemarkAddress stringByReplacingOccurrencesOfString:@"  " withString:@""];
-            
-            textLocation = [NSString stringWithFormat:@"%@", placemarkAddress];
-            
-            //NSLog(@"TextLocation: %@", textLocation);
-            
+//            //NSLog(@"Placemark: %@", placemark);
+//            //NSLog(@"Region: %@", [placemark region]);
+//            geoLocation = [NSString stringWithFormat:@"%@", [placemark region]];
+//            //NSLog(@"geoLocation: %@", geoLocation);
+//            
+//            NSDictionary *placemarkDictionary = [placemark addressDictionary];
+//            NSString * placemarkAddress = [[placemarkDictionary objectForKey:@"FormattedAddressLines"] description];
+//            //NSLog(@"placemarkAddress: %@", placemarkAddress);
+//            
+//            //Let's tidy up the address
+//            placemarkAddress = [placemarkAddress stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+//            placemarkAddress = [placemarkAddress stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+//            placemarkAddress = [placemarkAddress stringByReplacingOccurrencesOfString:@"(" withString:@""];
+//            placemarkAddress = [placemarkAddress stringByReplacingOccurrencesOfString:@")" withString:@""];
+//            placemarkAddress = [placemarkAddress stringByReplacingOccurrencesOfString:@"\t" withString:@""];
+//            placemarkAddress = [placemarkAddress stringByReplacingOccurrencesOfString:@"  " withString:@""];
+//            
+//            textLocation = [NSString stringWithFormat:@"%@", placemarkAddress];
+//            
+//            //NSLog(@"TextLocation: %@", textLocation);
+            geoLocation = [NSString stringWithFormat:@"%@", placemark];
         }    
     }];
     

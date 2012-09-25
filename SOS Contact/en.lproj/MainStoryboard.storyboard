@@ -292,8 +292,8 @@
                                     <action selector="sendMessage:" destination="qSB-R5-Lpz" eventType="touchUpInside" id="mwq-ZP-q6r"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" id="QiT-Cb-Jp5">
-                                <rect key="frame" x="150" y="339" width="20" height="20"/>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="whiteLarge" id="Xmz-NC-2M0">
+                                <rect key="frame" x="142" y="256" width="37" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                         </subviews>
@@ -301,7 +301,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Send SOS" id="tWa-yT-qgy"/>
                     <connections>
-                        <outlet property="activityIndicator" destination="QiT-Cb-Jp5" id="9D1-fx-ZmE"/>
+                        <outlet property="activityIndicator" destination="Xmz-NC-2M0" id="kcP-tY-xJu"/>
                         <outlet property="locationManager" destination="Hn8-UG-WqB" id="uiE-KO-ye4"/>
                     </connections>
                 </viewController>
