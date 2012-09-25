@@ -170,15 +170,18 @@
 }
 
 - (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component { // And now the final part of the UIPickerView, what happens when a row is selected.
+    NSUserDefaults * defaults  = [NSUserDefaults standardUserDefaults];
     
     if (pickerType == K_BLOOD_TYPE_KEY) {
         yourBloodGroup.text = [NSString stringWithFormat:@"%@", [sharedDelegate.bloodTypesArray objectAtIndex:row]];
         //yourBloodGroup.tag = row;
+        [defaults setObject:yourBloodGroup.text forKey:K_BLOOD_TYPE_KEY];
     } else if (pickerType == K_NATIONALITY_KEY){
         yourNationality.text = [NSString stringWithFormat:@"%@", [sharedDelegate.nationalitiesArray objectAtIndex:row]];
         //yourNationality.tag = row;
+        [defaults setObject:yourNationality.text forKey:K_NATIONALITY_KEY];
     }
-    
+    [defaults synchronize];
     //universalPickerView.hidden = YES;
 }
 
@@ -232,7 +235,7 @@
         
         self.yourDetailsSummary.text = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
         [defaults setObject:firstName forKey:K_YOU_FIRST_NAME];
-        [defaults setObject:firstName forKey:K_YOU_LAST_NAME];
+        [defaults setObject:lastName forKey:K_YOU_LAST_NAME];
         
         //yourContactRecord = person;
     } 
@@ -249,6 +252,8 @@
         //yourEmergencyContactRecord = person;
     }
     
+    
+    [defaults synchronize];
     
 //    NSString* phone = nil;
 //    ABMultiValueRef phoneNumbers = ABRecordCopyValue(person,

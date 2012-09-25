@@ -10,6 +10,9 @@
 
 @implementation SendMessageViewController
 @synthesize activityIndicator;
+@synthesize locationManager;
+@synthesize geoLocation;
+@synthesize textLocation;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,17 +40,21 @@
 }
 */
 
-/*
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
+    locationManager.delegate = self;
+    [locationManager startUpdatingLocation];
+    
     [super viewDidLoad];
+
 }
-*/
 
 - (void)viewDidUnload
 {
     [self setActivityIndicator:nil];
+    [self setLocationManager:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -65,7 +72,40 @@
     MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
     if([MFMessageComposeViewController canSendText])
     {
-        NSString * messageBody = [NSString stringWithFormat:@"EMERGENCY SOS. This is not a spam message. I'm in trouble and I need help. Here is my location: @%.", @"XYZ"];
+        NSUserDefaults * defaults  = [NSUserDefaults standardUserDefaults];
+        NSString * myName = [NSString stringWithFormat:@"%@ %@", [defaults objectForKey:K_YOU_FIRST_NAME], [defaults objectForKey:K_YOU_LAST_NAME]];
+        NSString * myNationality = [defaults objectForKey:K_NATIONALITY_KEY];
+        NSString * myBloodGroup = [defaults objectForKey:K_BLOOD_TYPE_KEY];
+        
+        NSString * nameString;
+        if (myName != nil) {
+            nameString = [NSString stringWithFormat:@" My name is %@. ", myName];
+        } 
+        else
+        {
+            nameString = @"";
+        }
+        
+        NSString * nationalityString;
+        if (myNationality != nil) {
+            nationalityString = [NSString stringWithFormat:@" I am %@. ", myNationality]; 
+        }
+        else
+        {
+            nationalityString = @"";
+        }
+        
+        NSString * bloodGroupString;
+        if (myBloodGroup != nil) {
+            bloodGroupString = [NSString stringWithFormat:@" My blood group is %@. ", myBloodGroup];
+        }
+        else
+        {
+            bloodGroupString = @"";
+        }
+        
+        
+        NSString * messageBody = [NSString stringWithFormat:@"EMERGENCY SOS.%@%@%@Here is my GeoLocation: %@. I'm here: %@. SEND HELP.", nameString, nationalityString, bloodGroupString, geoLocation, textLocation];
         
         
         controller.body = messageBody;    
@@ -92,6 +132,49 @@
         NSLog(@"Message failed");  
     }
 
+}
+
+#pragma Location Manager Methods
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    
+    [manager stopUpdatingLocation];
+    
+    NSLog(@"Location: %@", [newLocation description]);
+    
+    CLGeocoder * geoCoder = [[CLGeocoder alloc] init];
+    [geoCoder reverseGeocodeLocation:newLocation completionHandler:^(NSArray *placemarks, NSError *error) {
+        for (CLPlacemark * placemark in placemarks) {
+            //NSLog(@"Placemark: %@", placemark);
+            //NSLog(@"Region: %@", [placemark region]);
+            geoLocation = [NSString stringWithFormat:@"%@", [placemark region]];
+            
+            NSDictionary *placemarkDictionary = [placemark addressDictionary];
+            NSString * placemarkAddress = [[placemarkDictionary objectForKey:@"FormattedAddressLines"] description];
+            //NSLog(@"placemarkAddress: %@", placemarkAddress);
+            
+            //Let's tidy up the address
+            placemarkAddress = [placemarkAddress stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+            placemarkAddress = [placemarkAddress stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+            placemarkAddress = [placemarkAddress stringByReplacingOccurrencesOfString:@"(" withString:@""];
+            placemarkAddress = [placemarkAddress stringByReplacingOccurrencesOfString:@")" withString:@""];
+            placemarkAddress = [placemarkAddress stringByReplacingOccurrencesOfString:@"\t" withString:@""];
+            placemarkAddress = [placemarkAddress stringByReplacingOccurrencesOfString:@"  " withString:@""];
+            
+            textLocation = [NSString stringWithFormat:@"%@", placemarkAddress];
+            
+            //NSLog(@"TextLocation: %@", textLocation);
+            
+        }    
+    }];
+    
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"Error: %@", [error description]);
 }
         
 @end
