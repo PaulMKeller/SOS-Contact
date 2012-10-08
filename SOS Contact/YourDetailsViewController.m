@@ -63,6 +63,41 @@
     universalPickerView.hidden = YES;
     
     
+    NSUserDefaults * defaults  = [NSUserDefaults standardUserDefaults];
+    
+    NSString * firstName = [defaults stringForKey:K_YOU_FIRST_NAME];
+    NSString * lastName = [defaults stringForKey:K_YOU_LAST_NAME];
+    if (firstName == nil) firstName = @"";
+    if (lastName == nil) lastName = @"";
+    
+    if (firstName == @"" && lastName == @"")
+    {
+        yourDetailsSummary.text = @"Please select your contact record...";
+    }
+    else
+    {
+        yourDetailsSummary.text = [[NSString stringWithFormat:@"%@ %@", firstName, lastName] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    }
+    
+    NSString * nationality = [defaults stringForKey:K_NATIONALITY_KEY];
+    if (nationality == nil) {
+        yourNationality.text = @"Please select your nationality...";
+    }
+    else
+    {
+        yourNationality.text = nationality;
+    }
+    
+    NSString * bloodGroup = [defaults stringForKey:K_BLOOD_TYPE_KEY];
+    if (bloodGroup == nil) {
+        yourBloodGroup.text = @"Please select your blood group...";
+    }
+    else
+    {
+        yourBloodGroup.text = bloodGroup;
+    }
+    
+    //yourEmergencyContactSummary.text = [NSString stringWithFormat:@"%@ %@", [defaults stringForKey:K_SOS_FIRST_NAME], [defaults stringForKey:K_SOS_LAST_NAME]];
     
 }
 
@@ -241,30 +276,52 @@
     } 
     else 
     {
-        NSString * number = (__bridge_transfer NSString*)ABRecordCopyValue(person, kABPersonPhoneProperty);
+//        NSString * number = (__bridge_transfer NSString*)ABRecordCopyValue(person, kABPersonPrefixProperty);
         self.yourEmergencyContactSummary.text = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
-        self.yourEmergencyContactNumber.text = number;
-        
-        [defaults setObject:firstName forKey:K_SOS_FIRST_NAME];
-        [defaults setObject:lastName forKey:K_SOS_LAST_NAME];
-        [defaults setObject:number forKey:K_SOS_NUMBER];
+//        self.yourEmergencyContactNumber.text = number;
+//        
+//        [defaults setObject:firstName forKey:K_SOS_FIRST_NAME];
+//        [defaults setObject:lastName forKey:K_SOS_LAST_NAME];
+//        [defaults setObject:number forKey:K_SOS_NUMBER];
         
         //yourEmergencyContactRecord = person;
+        
+        
+        ABAddressBookRef addressBook = ABAddressBookCreate();
+        CFArrayRef all = ABAddressBookCopyArrayOfAllPeople(addressBook);
+        CFIndex n = ABAddressBookGetPersonCount(addressBook);
+        
+        for( int i = 0 ; i < n ; i++ )
+        {
+            ABRecordRef ref = CFArrayGetValueAtIndex(all, i);
+            NSString *firstName = (__bridge_transfer NSString *)ABRecordCopyValue(ref, kABPersonFirstNameProperty);
+            NSLog(@"Name %@", firstName);
+            
+            ABMultiValueRef phones = ABRecordCopyValue(ref, kABPersonPhoneProperty);
+            for(CFIndex j = 0; j < ABMultiValueGetCount(phones); j++)
+            {
+//                NSString *phoneLabel = @""; // ???
+//                
+//                CFStringRef phoneNumberRef = ABMultiValueCopyValueAtIndex(phones, j);
+//                //CFRelease(phones);
+//                NSString *phoneNumber = (__bridge_transfer NSString *)phoneNumberRef;
+//                CFRelease(phoneNumberRef);
+//                NSLog(@"  - %@ (%@)", phoneNumber, phoneLabel);
+                
+                CFStringRef phoneNumberRef = ABMultiValueCopyValueAtIndex(phones, j);
+                CFStringRef locLabel = ABMultiValueCopyLabelAtIndex(phones, j);
+                NSString *phoneLabel =(__bridge_transfer NSString *) ABAddressBookCopyLocalizedLabel(locLabel);
+                NSString *phoneNumber = (__bridge_transfer NSString *)phoneNumberRef;
+                CFRelease(phoneNumberRef);
+                CFRelease(locLabel);
+                NSLog(@"  - %@ (%@)", phoneNumber, phoneLabel);
+            }
+        }
     }
     
     
     [defaults synchronize];
     
-//    NSString* phone = nil;
-//    ABMultiValueRef phoneNumbers = ABRecordCopyValue(person,
-//                                                     kABPersonPhoneProperty);
-//    if (ABMultiValueGetCount(phoneNumbers) > 0) {
-//        phone = (__bridge_transfer NSString*)
-//        ABMultiValueCopyValueAtIndex(phoneNumbers, 0);
-//    } else {
-//        phone = @"[None]";
-//    }
-//    //self.phoneNumber.text = phone;
 }
 
 

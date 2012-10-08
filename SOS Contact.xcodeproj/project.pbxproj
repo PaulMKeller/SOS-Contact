@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA22E73A162344AB00A24B68 /* SOSContact.mobileprovision in Resources */ = {isa = PBXBuildFile; fileRef = DA22E739162344AB00A24B68 /* SOSContact.mobileprovision */; };
 		DA34013E15EBC45F0062CAF8 /* AdditionalInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA34013D15EBC45F0062CAF8 /* AdditionalInformationViewController.m */; };
 		DA34014615ED54DF0062CAF8 /* YourDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA34014515ED54DF0062CAF8 /* YourDetailsViewController.m */; };
 		DA34015015ED6D6A0062CAF8 /* EmergencyContact.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = DA34014F15ED6D6A0062CAF8 /* EmergencyContact.sqlite */; };
@@ -348,6 +349,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DA22E739162344AB00A24B68 /* SOSContact.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; name = SOSContact.mobileprovision; path = ../SOSContact.mobileprovision; sourceTree = "<group>"; };
 		DA34013C15EBC45F0062CAF8 /* AdditionalInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdditionalInformationViewController.h; sourceTree = "<group>"; };
 		DA34013D15EBC45F0062CAF8 /* AdditionalInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdditionalInformationViewController.m; sourceTree = "<group>"; };
 		DA34014415ED54DF0062CAF8 /* YourDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YourDetailsViewController.h; sourceTree = "<group>"; };
@@ -722,6 +724,7 @@
 			isa = PBXGroup;
 			children = (
 				DA34014E15ED5F960062CAF8 /* SOSConfig.h */,
+				DA22E739162344AB00A24B68 /* SOSContact.mobileprovision */,
 			);
 			name = Configuration;
 			sourceTree = "<group>";
@@ -1558,6 +1561,7 @@
 				DAA59AE916126E9700F34FA2 /* mail_send_30px.png in Resources */,
 				DAA59AEB16126F4F00F34FA2 /* Person_30px.png in Resources */,
 				DAA59AED1612715000F34FA2 /* SOSTabIcon_30px.png in Resources */,
+				DA22E73A162344AB00A24B68 /* SOSContact.mobileprovision in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1661,11 +1665,13 @@
 		DA83B83015E7D5A300A34EDE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SOS Contact/SOS Contact-Prefix.pch";
 				INFOPLIST_FILE = "SOS Contact/SOS Contact-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
